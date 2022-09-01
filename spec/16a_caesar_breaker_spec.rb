@@ -123,8 +123,6 @@ describe CaesarBreaker do
       end
     end
 
-    #start here
-
     # This method has a rescue block in case an error occurs.
     # Let's test that this method can run without raising an error.
     # https://relishapp.com/rspec/rspec-expectations/docs/built-in-matchers/raise-error-matcher
@@ -175,7 +173,9 @@ describe CaesarBreaker do
   describe '#save_to_yaml' do
     # Method with Outgoing Command -> Test that a message is sent
 
-    xit 'dumps to yaml' do
+    it 'dumps to yaml' do
+      expect(YAML).to receive(:dump).exactly(1).time
+      phrase.save_to_yaml
     end
   end
 end
